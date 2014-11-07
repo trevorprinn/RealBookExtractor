@@ -64,30 +64,37 @@ namespace RealBookExtracter {
             displayPage();
         }
 
+        private IEnumerable<string> getPages() {
+            return Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f)).OrderBy(f => f);
+        }
+
         private void displayPage() {
-            var pages = Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f)).OrderBy(f => f);
-            _firstPage = _lastPage = pages.FirstOrDefault();
+            _firstPage = _lastPage = getPages().FirstOrDefault();
             if (_firstPage == null) {
                 picStart.Image = picEnd.Image = null;
             } else {
-                picStart.Image = loadImage(Path.Combine(_jpgFolder, _firstPage));
-                picEnd.Image = picStart.Image;
+                picStart.Image = loadImage(_firstPage);
+                loadEndPage();
             }
             setButtonStates();
             if (textArtist.Enabled) BeginInvoke(new Action(() => textArtist.Focus()));
         }
 
+        private void loadEndPage() {
+            // The end page displayed is the one after _lastPage.
+            var page = getPages().SkipWhile(p => p != _lastPage).Skip(1).FirstOrDefault();
+            picEnd.Image = loadImage(page);
+        }
+
         private void btnBack_Click(object sender, EventArgs e) {
-            _lastPage = Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f))
-                .OrderByDescending(f => f).SkipWhile(f => f != _lastPage).Skip(1).First();
-            picEnd.Image = loadImage(Path.Combine(_jpgFolder, _lastPage));
+            _lastPage = getPages().Reverse().SkipWhile(f => f != _lastPage).Skip(1).First();
+            loadEndPage();
             setButtonStates();
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
-            _lastPage = Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f))
-                .OrderBy(f => f).SkipWhile(f => f != _lastPage).Skip(1).First();
-            picEnd.Image = loadImage(Path.Combine(_jpgFolder, _lastPage));
+            _lastPage = getPages().SkipWhile(f => f != _lastPage).Skip(1).First();
+            loadEndPage();
             setButtonStates();
         }
 
@@ -103,8 +110,7 @@ namespace RealBookExtracter {
         private void btnSave_Click(object sender, EventArgs e) {
             var folder = Path.Combine(_jpgFolder, textArtist.Text);
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-            var pages = Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f))
-                .OrderBy(f => f).TakeWhile(f => f != _lastPage).ToList();
+            var pages = getPages().TakeWhile(f => f != _lastPage).ToList();
             pages.Add(_lastPage);
             int count = 0;
             bool counter = pages.Count > 1;
@@ -127,9 +133,12 @@ namespace RealBookExtracter {
 
         
         private Image loadImage(string file) {
+            if (file == null) return null;
+            string path = Path.Combine(_jpgFolder, file);
+            if (!File.Exists(path)) return null;
             // Image.FromFile seems to lock the file until the image is disposed.
             using (var memStream = new MemoryStream()) {
-                using (FileStream s = new FileStream(file, FileMode.Open)) {
+                using (FileStream s = new FileStream(path, FileMode.Open)) {
                     s.CopyTo(memStream, 10240);
                 }
                 memStream.Seek(0, SeekOrigin.Begin);
