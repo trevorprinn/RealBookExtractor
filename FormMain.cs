@@ -161,6 +161,12 @@ namespace RealBookExtracter {
             _undoInfo = null;
             displayPage();
         }
+
+        private void menuAbout_Click(object sender, EventArgs e) {
+            using (var f = new FormAbout()) {
+                f.ShowDialog(this);
+            }
+        }
     }
 
     public class UndoInfo {
