@@ -16,6 +16,7 @@ namespace RealBookExtracter {
         private string _jpgFolder;
         private string _firstPage;
         private string _lastPage;
+        private UndoInfo[] _undoInfo;
 
         public FormMain() {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace RealBookExtracter {
         private void btnLoad_Click(object sender, EventArgs e) {
             _jpgFolder = textFolder.Text;
             Settings.FolderPath = _jpgFolder;
+            _undoInfo = null;
             displayPage();
         }
 
@@ -120,13 +122,10 @@ namespace RealBookExtracter {
             pages.Add(_lastPage);
             int count = 0;
             bool counter = pages.Count > 1;
-            foreach (var page in pages) {
-                var name = counter 
-                    ? string.Format("{0} {1}", textTitle.Text, ++count)
-                    : textTitle.Text;
-                name += Path.GetExtension(page);
-                File.Move(Path.Combine(_jpgFolder, page), Path.Combine(folder, name));
-            }
+            _undoInfo = pages.Select(p => new {OrigName = p, 
+                NewName = (counter ? string.Format("{0} {1}", textTitle.Text, ++count) : textTitle.Text) + Path.GetExtension(p)
+            }).Select(p => new UndoInfo(_jpgFolder, p.OrigName, folder, p.NewName)).ToArray();
+            foreach (var p in _undoInfo) p.Move();
             textTitle.Text = cboArtist.Text = "";
             displayPage();
         }
@@ -138,7 +137,6 @@ namespace RealBookExtracter {
             e.SuppressKeyPress = e.Handled = true;
             base.OnKeyDown(e);
         }
-
         
         private Image loadImage(string file) {
             if (file == null) return null;
@@ -152,6 +150,32 @@ namespace RealBookExtracter {
                 memStream.Seek(0, SeekOrigin.Begin);
                 return Image.FromStream(memStream);
             }
+        }
+
+        private void menuEdit_DropDownOpening(object sender, EventArgs e) {
+            menuUndo.Enabled = _undoInfo != null && _undoInfo.Any();
+        }
+
+        private void menuUndo_Click(object sender, EventArgs e) {
+            foreach (var p in _undoInfo) p.Undo();
+            _undoInfo = null;
+            displayPage();
+        }
+    }
+
+    public class UndoInfo {
+        public string OriginalName { get; private set; }
+        public string MovedName { get; private set; }
+        public UndoInfo(string origFolder, string origFilename, string artistFolder, string filename) {
+            OriginalName = Path.Combine(origFolder, origFilename);
+            MovedName = Path.Combine(artistFolder, filename);
+        }
+        public void Move() {
+            if (!Directory.Exists(Path.GetDirectoryName(MovedName))) Directory.CreateDirectory(Path.GetDirectoryName(MovedName));
+            File.Move(OriginalName, MovedName);
+        }
+        public void Undo() {
+            File.Move(MovedName, OriginalName);
         }
     }
 

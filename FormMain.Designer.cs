@@ -26,6 +26,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExtract = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textFolder = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -52,7 +54,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFile});
+            this.menuFile,
+            this.menuEdit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(599, 24);
@@ -73,6 +76,22 @@
             this.menuExtract.Size = new System.Drawing.Size(159, 22);
             this.menuExtract.Text = "Extract Images...";
             this.menuExtract.Click += new System.EventHandler(this.menuExtract_Click);
+            // 
+            // menuEdit
+            // 
+            this.menuEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuUndo});
+            this.menuEdit.Name = "menuEdit";
+            this.menuEdit.Size = new System.Drawing.Size(39, 20);
+            this.menuEdit.Text = "Edit";
+            this.menuEdit.DropDownOpening += new System.EventHandler(this.menuEdit_DropDownOpening);
+            // 
+            // menuUndo
+            // 
+            this.menuUndo.Name = "menuUndo";
+            this.menuUndo.Size = new System.Drawing.Size(152, 22);
+            this.menuUndo.Text = "Undo";
+            this.menuUndo.Click += new System.EventHandler(this.menuUndo_Click);
             // 
             // label1
             // 
@@ -284,6 +303,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private SearchingComboBox cboArtist;
+        private System.Windows.Forms.ToolStripMenuItem menuEdit;
+        private System.Windows.Forms.ToolStripMenuItem menuUndo;
     }
 }
 
