@@ -33,14 +33,14 @@ namespace RealBookExtracter {
 
         private void setButtonStates() {
             btnLoad.Enabled = Directory.Exists(textFolder.Text);
-            if (_firstPage == null) {
+            if (_firstPage == null || !getPages().Any()) {
                 cboArtist.Enabled = textTitle.Enabled = btnBack.Enabled
                     = btnNext.Enabled = btnSave.Enabled = btnDelete.Enabled = false;
                 return;
             }
             cboArtist.Enabled = textTitle.Enabled = true;
             btnBack.Enabled = _firstPage != _lastPage;
-            btnNext.Enabled = _lastPage != Path.GetFileName(Directory.GetFiles(_jpgFolder).Last());
+            btnNext.Enabled = _lastPage != getPages().Last();
             btnSave.Enabled = cboArtist.Text != "" && textTitle.Text != "";
             btnDelete.Enabled = true;
             if (btnSave.Enabled) AcceptButton = btnSave;
