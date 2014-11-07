@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using System.Windows.Forms;
 
 namespace RealBookExtracter {
@@ -19,6 +20,14 @@ namespace RealBookExtracter {
         public FormMain() {
             InitializeComponent();
             setButtonStates();
+        }
+
+        protected override void OnLoad(EventArgs e) {
+            base.OnLoad(e);
+            if (!string.IsNullOrWhiteSpace(Settings.FolderPath) && Directory.Exists(Settings.FolderPath)) {
+                textFolder.Text = Settings.FolderPath;
+                btnLoad.PerformClick();
+            }
         }
 
         private void setButtonStates() {
@@ -51,6 +60,7 @@ namespace RealBookExtracter {
 
         private void btnLoad_Click(object sender, EventArgs e) {
             _jpgFolder = textFolder.Text;
+            Settings.FolderPath = _jpgFolder;
             displayPage();
         }
 
@@ -64,7 +74,7 @@ namespace RealBookExtracter {
                 picEnd.Image = picStart.Image;
             }
             setButtonStates();
-            if (textArtist.Enabled) textArtist.Focus();
+            if (textArtist.Enabled) BeginInvoke(new Action(() => textArtist.Focus()));
         }
 
         private void btnBack_Click(object sender, EventArgs e) {
@@ -126,6 +136,31 @@ namespace RealBookExtracter {
                 return Image.FromStream(memStream);
             }
         }
+    }
 
+    static class Settings {
+        private static string _filename;
+        private static XDocument _doc;
+
+        static Settings() {
+            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Babbacombe", "RealBookExtracter");
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+            _filename = Path.Combine(folder, "RealBookExtracter.xml");
+            if (File.Exists(_filename)) {
+                _doc = XDocument.Load(_filename);
+            } else {
+                _doc = new XDocument(
+                    new XElement("Settings",
+                        new XElement("Folder", new XAttribute("Path", ""))));
+            }
+        }
+
+        public static string FolderPath {
+            get { return _doc.Root.Element("Folder").Attribute("Path").Value; }
+            set {
+                _doc.Root.Element("Folder").SetAttributeValue("Path", value);
+                _doc.Save(_filename);
+            }
+        }
     }
 }
