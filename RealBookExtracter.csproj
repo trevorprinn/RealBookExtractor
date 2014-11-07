@@ -67,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchingComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="FormExtract.resx">
       <DependentUpon>FormExtract.cs</DependentUpon>
     </EmbeddedResource>

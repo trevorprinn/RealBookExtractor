@@ -33,14 +33,14 @@ namespace RealBookExtracter {
         private void setButtonStates() {
             btnLoad.Enabled = Directory.Exists(textFolder.Text);
             if (_firstPage == null) {
-                textArtist.Enabled = textTitle.Enabled = btnBack.Enabled
+                cboArtist.Enabled = textTitle.Enabled = btnBack.Enabled
                     = btnNext.Enabled = btnSave.Enabled = btnDelete.Enabled = false;
                 return;
             }
-            textArtist.Enabled = textTitle.Enabled = true;
+            cboArtist.Enabled = textTitle.Enabled = true;
             btnBack.Enabled = _firstPage != _lastPage;
             btnNext.Enabled = _lastPage != Path.GetFileName(Directory.GetFiles(_jpgFolder).Last());
-            btnSave.Enabled = textArtist.Text != "" && textTitle.Text != "";
+            btnSave.Enabled = cboArtist.Text != "" && textTitle.Text != "";
             btnDelete.Enabled = true;
             if (btnSave.Enabled) AcceptButton = btnSave;
         }
@@ -77,7 +77,13 @@ namespace RealBookExtracter {
                 loadEndPage();
             }
             setButtonStates();
-            if (textArtist.Enabled) BeginInvoke(new Action(() => textArtist.Focus()));
+            loadArtists();
+            if (cboArtist.Enabled) BeginInvoke(new Action(() => cboArtist.Focus()));
+        }
+
+        private void loadArtists() {
+            cboArtist.Items.Clear();
+            cboArtist.Items.AddRange(Directory.GetDirectories(_jpgFolder).Select(a => Path.GetFileName(a)).ToArray());
         }
 
         private void loadEndPage() {
@@ -108,7 +114,7 @@ namespace RealBookExtracter {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            var folder = Path.Combine(_jpgFolder, textArtist.Text);
+            var folder = Path.Combine(_jpgFolder, cboArtist.Text);
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
             var pages = getPages().TakeWhile(f => f != _lastPage).ToList();
             pages.Add(_lastPage);
@@ -121,13 +127,15 @@ namespace RealBookExtracter {
                 name += Path.GetExtension(page);
                 File.Move(Path.Combine(_jpgFolder, page), Path.Combine(folder, name));
             }
-            textTitle.Text = textArtist.Text = "";
+            textTitle.Text = cboArtist.Text = "";
             displayPage();
         }
 
         protected override void OnKeyDown(KeyEventArgs e) {
+            if (e.KeyCode != Keys.PageUp && e.KeyCode != Keys.PageDown) return;
             if (e.KeyCode == Keys.PageUp && btnBack.Enabled) btnBack.PerformClick();
             if (e.KeyCode == Keys.PageDown && btnNext.Enabled) btnNext.PerformClick();
+            e.SuppressKeyPress = e.Handled = true;
             base.OnKeyDown(e);
         }
 

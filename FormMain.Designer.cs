@@ -35,11 +35,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textArtist = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textTitle = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.cboArtist = new RealBookExtracter.SearchingComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
@@ -80,7 +80,7 @@
             this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Folder:";
             // 
             // textFolder
@@ -90,7 +90,7 @@
             this.textFolder.Location = new System.Drawing.Point(57, 25);
             this.textFolder.Name = "textFolder";
             this.textFolder.Size = new System.Drawing.Size(465, 20);
-            this.textFolder.TabIndex = 2;
+            this.textFolder.TabIndex = 1;
             this.textFolder.TextChanged += new System.EventHandler(this.textFolder_TextChanged);
             // 
             // btnLoad
@@ -99,7 +99,7 @@
             this.btnLoad.Location = new System.Drawing.Point(531, 23);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(56, 23);
-            this.btnLoad.TabIndex = 3;
+            this.btnLoad.TabIndex = 2;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -122,7 +122,7 @@
             this.splitPages.Panel2.Controls.Add(this.picEnd);
             this.splitPages.Size = new System.Drawing.Size(574, 314);
             this.splitPages.SplitterDistance = 286;
-            this.splitPages.TabIndex = 4;
+            this.splitPages.TabIndex = 11;
             // 
             // picStart
             // 
@@ -150,7 +150,7 @@
             this.btnBack.Location = new System.Drawing.Point(433, 51);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 5;
+            this.btnBack.TabIndex = 7;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -161,7 +161,7 @@
             this.btnNext.Location = new System.Drawing.Point(514, 51);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 6;
+            this.btnNext.TabIndex = 8;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -172,19 +172,8 @@
             this.label2.Location = new System.Drawing.Point(18, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 7;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Artist:";
-            // 
-            // textArtist
-            // 
-            this.textArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textArtist.Location = new System.Drawing.Point(57, 58);
-            this.textArtist.Name = "textArtist";
-            this.textArtist.Size = new System.Drawing.Size(368, 22);
-            this.textArtist.TabIndex = 8;
-            this.textArtist.TextChanged += new System.EventHandler(this.text_Changed);
             // 
             // label3
             // 
@@ -192,7 +181,7 @@
             this.label3.Location = new System.Drawing.Point(18, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 5;
             this.label3.Text = "Title:";
             // 
             // textTitle
@@ -203,7 +192,7 @@
             this.textTitle.Location = new System.Drawing.Point(57, 85);
             this.textTitle.Name = "textTitle";
             this.textTitle.Size = new System.Drawing.Size(368, 22);
-            this.textTitle.TabIndex = 10;
+            this.textTitle.TabIndex = 6;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
             // 
             // btnSave
@@ -212,7 +201,7 @@
             this.btnSave.Location = new System.Drawing.Point(433, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -223,10 +212,22 @@
             this.btnDelete.Location = new System.Drawing.Point(514, 88);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 12;
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // cboArtist
+            // 
+            this.cboArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboArtist.FormattingEnabled = true;
+            this.cboArtist.InputMustMatch = false;
+            this.cboArtist.Location = new System.Drawing.Point(57, 58);
+            this.cboArtist.Name = "cboArtist";
+            this.cboArtist.Size = new System.Drawing.Size(368, 24);
+            this.cboArtist.TabIndex = 4;
             // 
             // FormMain
             // 
@@ -234,11 +235,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 431);
+            this.Controls.Add(this.cboArtist);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.textTitle);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textArtist);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
@@ -278,11 +279,11 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textArtist;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textTitle;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
+        private SearchingComboBox cboArtist;
     }
 }
 
