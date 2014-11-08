@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,8 +16,12 @@ namespace RealBookExtracter {
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+
+            labelLicence.Text = "This program is licenced under the MIT licence. Source code and licence information are available from https://github.com/trevorprinn/RealBookExtracter\r\n\r\n"
+                + "It uses PdfSharp components licenced under the MIT licence.\r\nhttp://www.pdfsharp.net\r\nhttps://github.com/gheeres/PDFSharp.Extensions";
+            var links = Regex.Matches(labelLicence.Text, @"https?://[^\s]*");
+            foreach (Match l in links) labelLicence.Links.Add(l.Index, l.Length, l.Value);
         }
 
         #region Assembly Attribute Accessors
@@ -80,6 +85,10 @@ namespace RealBookExtracter {
             }
         }
         #endregion
+
+        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
 
     }
 }

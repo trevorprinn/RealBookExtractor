@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RealBookExtracter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Extracts and organises pdf pages for import into the MobileSheets Android app.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RealBookExtracter")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Real Book Extractor")]
+[assembly: AssemblyCopyright("Copyright © Trevor Prinn 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
