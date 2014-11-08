@@ -48,11 +48,16 @@ namespace RealBookExtracter {
             }
             Directory.CreateDirectory(OutFolder);
             System.Diagnostics.Process.Start(OutFolder);
-            int count = 0;
+            int count = 1;
             using (var pdf = PdfReader.Open(pdfName, PdfDocumentOpenMode.Import)) {
                 foreach (PdfPage page in pdf.Pages) {
-                    foreach (var img in page.GetImages()) {
-                        img.Save(Path.Combine(OutFolder, string.Format("{0:000}.jpg", ++count)));
+                    try {
+                        foreach (var img in page.GetImages()) {
+                            img.Save(Path.Combine(OutFolder, string.Format("{0:000}.jpg", count++)));
+                        }
+                    } catch (Exception ex) {
+                        string msg = string.Format("Couldn't extract page {0}\r\n{1}", count++, ex.Message);
+                        MessageBox.Show(this, msg, "Extraction error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
