@@ -35,14 +35,14 @@ namespace RealBookExtracter {
             btnLoad.Enabled = Directory.Exists(textFolder.Text);
             if (_firstPage == null || !getPages().Any()) {
                 cboArtist.Enabled = textTitle.Enabled = btnBack.Enabled
-                    = btnNext.Enabled = btnSave.Enabled = btnDelete.Enabled = false;
+                    = btnNext.Enabled = btnSave.Enabled = btnDelete.Enabled = btnDuplicate.Enabled = false;
                 return;
             }
             cboArtist.Enabled = textTitle.Enabled = true;
             btnBack.Enabled = _firstPage != _lastPage;
             btnNext.Enabled = _lastPage != getPages().Last();
             btnSave.Enabled = cboArtist.Text != "" && textTitle.Text != "";
-            btnDelete.Enabled = true;
+            btnDelete.Enabled = btnDuplicate.Enabled = true;
             if (btnSave.Enabled) AcceptButton = btnSave;
         }
 
@@ -166,6 +166,18 @@ namespace RealBookExtracter {
             using (var f = new FormAbout()) {
                 f.ShowDialog(this);
             }
+        }
+
+        private void btnDuplicate_Click(object sender, EventArgs e) {
+            var dupeNum = 1;
+            var fname = Path.GetFileName(_firstPage);
+            var ext = Path.GetExtension(_firstPage);
+            string newName;
+            do {
+                newName = Path.Combine(_jpgFolder, string.Format("{0} ({1}){2}", fname, dupeNum++, ext));
+            } while (File.Exists(newName));
+            File.Copy(Path.Combine(_jpgFolder, _firstPage), newName);
+            displayPage();
         }
     }
 

@@ -28,6 +28,8 @@
             this.menuExtract = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUndo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textFolder = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -42,8 +44,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.cboArtist = new RealBookExtracter.SearchingComboBox();
-            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDuplicate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
@@ -92,9 +93,24 @@
             // menuUndo
             // 
             this.menuUndo.Name = "menuUndo";
-            this.menuUndo.Size = new System.Drawing.Size(152, 22);
+            this.menuUndo.Size = new System.Drawing.Size(103, 22);
             this.menuUndo.Text = "Undo";
             this.menuUndo.Click += new System.EventHandler(this.menuUndo_Click);
+            // 
+            // menuHelp
+            // 
+            this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAbout});
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(44, 20);
+            this.menuHelp.Text = "Help";
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(107, 22);
+            this.menuAbout.Text = "About";
+            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
             // label1
             // 
@@ -102,7 +118,7 @@
             this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Folder:";
             // 
             // textFolder
@@ -112,7 +128,7 @@
             this.textFolder.Location = new System.Drawing.Point(57, 25);
             this.textFolder.Name = "textFolder";
             this.textFolder.Size = new System.Drawing.Size(465, 20);
-            this.textFolder.TabIndex = 1;
+            this.textFolder.TabIndex = 2;
             this.textFolder.TextChanged += new System.EventHandler(this.textFolder_TextChanged);
             // 
             // btnLoad
@@ -121,7 +137,7 @@
             this.btnLoad.Location = new System.Drawing.Point(531, 23);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(56, 23);
-            this.btnLoad.TabIndex = 2;
+            this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -144,7 +160,7 @@
             this.splitPages.Panel2.Controls.Add(this.picEnd);
             this.splitPages.Size = new System.Drawing.Size(574, 314);
             this.splitPages.SplitterDistance = 286;
-            this.splitPages.TabIndex = 11;
+            this.splitPages.TabIndex = 13;
             // 
             // picStart
             // 
@@ -172,7 +188,7 @@
             this.btnBack.Location = new System.Drawing.Point(433, 51);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 7;
+            this.btnBack.TabIndex = 8;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -183,7 +199,7 @@
             this.btnNext.Location = new System.Drawing.Point(514, 51);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 8;
+            this.btnNext.TabIndex = 9;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -194,7 +210,7 @@
             this.label2.Location = new System.Drawing.Point(18, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Artist:";
             // 
             // label3
@@ -203,7 +219,7 @@
             this.label3.Location = new System.Drawing.Point(18, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Title:";
             // 
             // textTitle
@@ -213,17 +229,17 @@
             this.textTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTitle.Location = new System.Drawing.Point(57, 85);
             this.textTitle.Name = "textTitle";
-            this.textTitle.Size = new System.Drawing.Size(368, 22);
-            this.textTitle.TabIndex = 6;
+            this.textTitle.Size = new System.Drawing.Size(344, 22);
+            this.textTitle.TabIndex = 7;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(433, 88);
+            this.btnSave.Location = new System.Drawing.Point(407, 88);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 9;
+            this.btnSave.Size = new System.Drawing.Size(50, 23);
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -231,10 +247,10 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(514, 88);
+            this.btnDelete.Location = new System.Drawing.Point(464, 88);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Size = new System.Drawing.Size(50, 23);
+            this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -248,23 +264,19 @@
             this.cboArtist.InputMustMatch = false;
             this.cboArtist.Location = new System.Drawing.Point(57, 58);
             this.cboArtist.Name = "cboArtist";
-            this.cboArtist.Size = new System.Drawing.Size(368, 24);
-            this.cboArtist.TabIndex = 4;
+            this.cboArtist.Size = new System.Drawing.Size(344, 24);
+            this.cboArtist.TabIndex = 5;
             // 
-            // menuHelp
+            // btnDuplicate
             // 
-            this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAbout});
-            this.menuHelp.Name = "menuHelp";
-            this.menuHelp.Size = new System.Drawing.Size(44, 20);
-            this.menuHelp.Text = "Help";
-            // 
-            // menuAbout
-            // 
-            this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(152, 22);
-            this.menuAbout.Text = "About";
-            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
+            this.btnDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDuplicate.Location = new System.Drawing.Point(520, 88);
+            this.btnDuplicate.Name = "btnDuplicate";
+            this.btnDuplicate.Size = new System.Drawing.Size(67, 23);
+            this.btnDuplicate.TabIndex = 12;
+            this.btnDuplicate.Text = "Duplicate";
+            this.btnDuplicate.UseVisualStyleBackColor = true;
+            this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
             // FormMain
             // 
@@ -272,6 +284,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 431);
+            this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.cboArtist);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
@@ -325,6 +338,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuUndo;
         private System.Windows.Forms.ToolStripMenuItem menuHelp;
         private System.Windows.Forms.ToolStripMenuItem menuAbout;
+        private System.Windows.Forms.Button btnDuplicate;
     }
 }
 
