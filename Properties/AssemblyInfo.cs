@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RealBookExtracter")]
+[assembly: AssemblyTitle("RealBookExtractor")]
 [assembly: AssemblyDescription("Extracts and organises pdf pages for import into the MobileSheets Android app.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

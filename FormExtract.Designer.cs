@@ -1,4 +1,4 @@
-﻿namespace RealBookExtracter {
+﻿namespace RealBookExtractor {
     partial class FormExtract {
         /// <summary>
         /// Required designer variable.

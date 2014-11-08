@@ -1,4 +1,4 @@
-﻿namespace RealBookExtracter {
+﻿namespace RealBookExtractor {
     partial class FormAbout {
         /// <summary>
         /// Required designer variable.
@@ -142,7 +142,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Real Book Extracter";
+            this.Text = "Real Book Extractor";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

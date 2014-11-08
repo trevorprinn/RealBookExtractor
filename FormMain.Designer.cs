@@ -1,4 +1,4 @@
-﻿namespace RealBookExtracter {
+﻿namespace RealBookExtractor {
     partial class FormMain {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             this.textTitle = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.cboArtist = new RealBookExtracter.SearchingComboBox();
+            this.cboArtist = new RealBookExtractor.SearchingComboBox();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
@@ -301,7 +301,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "Real Book Extracter";
+            this.Text = "Real Book Extractor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitPages.Panel1.ResumeLayout(false);

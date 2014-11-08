@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RealBookExtracter {
+namespace RealBookExtractor {
     partial class FormAbout : Form {
         public FormAbout() {
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace RealBookExtracter {
             this.labelCopyright.Text = AssemblyCopyright;
             this.textBoxDescription.Text = AssemblyDescription;
 
-            labelLicence.Text = "This program is licenced under the MIT licence. Source code and licence information are available from https://github.com/trevorprinn/RealBookExtracter\r\n\r\n"
+            labelLicence.Text = "This program is licenced under the MIT licence. Source code and licence information are available from https://github.com/trevorprinn/RealBookExtractor\r\n\r\n"
                 + "It uses PdfSharp components licenced under the MIT licence.\r\nhttp://www.pdfsharp.net\r\nhttps://github.com/gheeres/PDFSharp.Extensions";
             var links = Regex.Matches(labelLicence.Text, @"https?://[^\s]*");
             foreach (Match l in links) labelLicence.Links.Add(l.Index, l.Length, l.Value);

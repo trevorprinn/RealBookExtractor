@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Windows.Forms;
 
-namespace RealBookExtracter {
+namespace RealBookExtractor {
     public partial class FormMain : Form {
 
         private string _jpgFolder;
@@ -202,9 +202,9 @@ namespace RealBookExtracter {
         private static XDocument _doc;
 
         static Settings() {
-            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Babbacombe", "RealBookExtracter");
+            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Babbacombe", "RealBookExtractor");
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-            _filename = Path.Combine(folder, "RealBookExtracter.xml");
+            _filename = Path.Combine(folder, "RealBookExtractor.xml");
             if (File.Exists(_filename)) {
                 _doc = XDocument.Load(_filename);
             } else {

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
-namespace RealBookExtracter {
+namespace RealBookExtractor {
     public partial class FormExtract : Form {
         public FormExtract() {
             InitializeComponent();

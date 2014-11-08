@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RealBookExtracter.Properties {
+namespace RealBookExtractor.Properties {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

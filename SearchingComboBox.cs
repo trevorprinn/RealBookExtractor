@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RealBookExtracter {
+namespace RealBookExtractor {
     /// <summary>
     /// This is a combo box that allows the user to type into the edit box,
     /// but searches for the first item matching what they have typed in, and
