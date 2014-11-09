@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RealBookExtractor")]
 [assembly: AssemblyDescription("Extracts and organises pdf pages for import into the MobileSheets Android app.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Babbacombe Computers Ltd")]
 [assembly: AssemblyProduct("Real Book Extractor")]
 [assembly: AssemblyCopyright("Copyright © Trevor Prinn 2014")]
 [assembly: AssemblyTrademark("")]

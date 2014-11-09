@@ -214,7 +214,7 @@ namespace RealBookExtractor {
         private static XDocument _doc;
 
         static Settings() {
-            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Babbacombe", "RealBookExtractor");
+            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Babbacombe Computers Ltd", "RealBookExtractor");
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
             _filename = Path.Combine(folder, "RealBookExtractor.xml");
             if (File.Exists(_filename)) {
