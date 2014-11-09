@@ -104,13 +104,13 @@ namespace RealBookExtractor {
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e) {
+            base.OnKeyPress(e);
+            if (e.Handled) return;
+
             /* Whatever happens, we have handled the key, and
              * and don't want the base class to do anything with it */
             e.Handled = true;
-            if (_readOnly) {
-                base.OnKeyPress(e);
-                return;
-            }
+            if (_readOnly) return;
             // Find the text entered so far - everything that is not selected.
             string soFar = Text.Substring(0, SelectionStart);
             // Now modify that with the key entered.
@@ -126,23 +126,18 @@ namespace RealBookExtractor {
                 Text = Items[0].ToString();
                 SelectionStart = 0;
                 SelectionLength = Text.Length;
-                base.OnKeyPress(e);
                 return;
             }
 
             if (soFar.Length == 0) {
                 Text = String.Empty;
                 base.SelectedItem = null;
-                base.OnKeyPress(e);
                 return;
             }
 
             int pos = this.FindString(soFar);
-            if (InputMustMatch && pos < 0) {
-                // It's not in the list so ignore the key press
-                base.OnKeyPress(e);
-                return;
-            }
+            // If it's not in the list, ignore the key press
+            if (InputMustMatch && pos < 0) return;
 
             // Note that the SelectedIndexChanged event gets raised by this automatically.
             if (!InputMustMatch && pos < 0) {
@@ -152,7 +147,6 @@ namespace RealBookExtractor {
             }
             SelectionStart = soFar.Length;
             SelectionLength = Math.Max(Text.Length - soFar.Length, 0);
-            base.OnKeyPress(e);
         }
 
         protected override void OnKeyUp(KeyEventArgs e) {

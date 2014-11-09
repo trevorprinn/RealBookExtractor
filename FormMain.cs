@@ -179,6 +179,14 @@ namespace RealBookExtractor {
             File.Copy(Path.Combine(_jpgFolder, _firstPage), newName);
             displayPage();
         }
+
+        private void textTitle_KeyPress(object sender, KeyPressEventArgs e) {
+            e.Handled = e.KeyChar != '\b' && Path.GetInvalidFileNameChars().Contains(e.KeyChar);
+        }
+
+        private void cboArtist_KeyPress(object sender, KeyPressEventArgs e) {
+            e.Handled = e.KeyChar != '\b' && Path.GetInvalidFileNameChars().Contains(e.KeyChar);
+        }
     }
 
     public class UndoInfo {

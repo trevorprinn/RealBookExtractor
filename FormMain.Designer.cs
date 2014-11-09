@@ -232,6 +232,7 @@
             this.textTitle.Size = new System.Drawing.Size(344, 22);
             this.textTitle.TabIndex = 7;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
+            this.textTitle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTitle_KeyPress);
             // 
             // btnSave
             // 
@@ -266,6 +267,7 @@
             this.cboArtist.Name = "cboArtist";
             this.cboArtist.Size = new System.Drawing.Size(344, 24);
             this.cboArtist.TabIndex = 5;
+            this.cboArtist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboArtist_KeyPress);
             // 
             // btnDuplicate
             // 
