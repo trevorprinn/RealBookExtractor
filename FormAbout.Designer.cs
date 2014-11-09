@@ -52,7 +52,7 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.05124F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.42801F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.208544F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(294, 296);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(383, 317);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // labelProductName
@@ -62,7 +62,7 @@
             this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(285, 17);
+            this.labelProductName.Size = new System.Drawing.Size(374, 17);
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -70,11 +70,11 @@
             // labelVersion
             // 
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelVersion.Location = new System.Drawing.Point(6, 24);
+            this.labelVersion.Location = new System.Drawing.Point(6, 26);
             this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(285, 17);
+            this.labelVersion.Size = new System.Drawing.Size(374, 17);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -82,11 +82,11 @@
             // labelCopyright
             // 
             this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCopyright.Location = new System.Drawing.Point(6, 48);
+            this.labelCopyright.Location = new System.Drawing.Point(6, 52);
             this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(285, 17);
+            this.labelCopyright.Size = new System.Drawing.Size(374, 17);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.Text = "Copyright";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,13 +94,13 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(6, 77);
+            this.textBoxDescription.Location = new System.Drawing.Point(6, 83);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(285, 59);
+            this.textBoxDescription.Size = new System.Drawing.Size(374, 63);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Description";
@@ -109,7 +109,7 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(216, 273);
+            this.okButton.Location = new System.Drawing.Point(305, 294);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 20);
             this.okButton.TabIndex = 24;
@@ -119,9 +119,9 @@
             // 
             this.labelLicence.AutoSize = true;
             this.labelLicence.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLicence.Location = new System.Drawing.Point(3, 139);
+            this.labelLicence.Location = new System.Drawing.Point(3, 149);
             this.labelLicence.Name = "labelLicence";
-            this.labelLicence.Size = new System.Drawing.Size(288, 131);
+            this.labelLicence.Size = new System.Drawing.Size(377, 140);
             this.labelLicence.TabIndex = 25;
             this.labelLicence.TabStop = true;
             this.labelLicence.Text = "linkLabel1";
@@ -132,7 +132,7 @@
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 314);
+            this.ClientSize = new System.Drawing.Size(401, 335);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

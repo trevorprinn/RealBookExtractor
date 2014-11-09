@@ -19,7 +19,8 @@ namespace RealBookExtractor {
             this.textBoxDescription.Text = AssemblyDescription;
 
             labelLicence.Text = "This program is licenced under the MIT licence. Source code and licence information are available from https://github.com/trevorprinn/RealBookExtractor\r\n\r\n"
-                + "It uses PdfSharp components licenced under the MIT licence.\r\nhttp://www.pdfsharp.net\r\nhttps://github.com/gheeres/PDFSharp.Extensions";
+                + "It uses PdfSharp components licenced under the MIT licence.\r\nhttp://www.pdfsharp.net\r\nCopyright © 2005-2012 empira Software GmbH, Troisdorf (Germany)"
+                + "https://github.com/gheeres/PDFSharp.Extensions\r\nCopyright © 2014 George Heeres, All rights reserved.";
             var links = Regex.Matches(labelLicence.Text, @"https?://[^\s]*");
             foreach (Match l in links) labelLicence.Links.Add(l.Index, l.Length, l.Value);
         }
