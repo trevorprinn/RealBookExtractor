@@ -45,6 +45,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.cboArtist = new RealBookExtractor.SearchingComboBox();
             this.btnDuplicate = new System.Windows.Forms.Button();
+            this.menuOnlineWiki = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
@@ -100,6 +101,7 @@
             // menuHelp
             // 
             this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOnlineWiki,
             this.menuAbout});
             this.menuHelp.Name = "menuHelp";
             this.menuHelp.Size = new System.Drawing.Size(44, 20);
@@ -108,7 +110,7 @@
             // menuAbout
             // 
             this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(107, 22);
+            this.menuAbout.Size = new System.Drawing.Size(152, 22);
             this.menuAbout.Text = "About";
             this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
@@ -280,6 +282,13 @@
             this.btnDuplicate.UseVisualStyleBackColor = true;
             this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
+            // menuOnlineWiki
+            // 
+            this.menuOnlineWiki.Name = "menuOnlineWiki";
+            this.menuOnlineWiki.Size = new System.Drawing.Size(152, 22);
+            this.menuOnlineWiki.Text = "Online Wiki";
+            this.menuOnlineWiki.Click += new System.EventHandler(this.menuOnlineWiki_Click);
+            // 
             // FormMain
             // 
             this.AcceptButton = this.btnSave;
@@ -341,6 +350,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuHelp;
         private System.Windows.Forms.ToolStripMenuItem menuAbout;
         private System.Windows.Forms.Button btnDuplicate;
+        private System.Windows.Forms.ToolStripMenuItem menuOnlineWiki;
     }
 }
 

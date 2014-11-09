@@ -187,6 +187,10 @@ namespace RealBookExtractor {
         private void cboArtist_KeyPress(object sender, KeyPressEventArgs e) {
             e.Handled = e.KeyChar != '\b' && Path.GetInvalidFileNameChars().Contains(e.KeyChar);
         }
+
+        private void menuOnlineWiki_Click(object sender, EventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/trevorprinn/RealBookExtractor/wiki");
+        }
     }
 
     public class UndoInfo {
