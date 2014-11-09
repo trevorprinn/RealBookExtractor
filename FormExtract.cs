@@ -57,7 +57,9 @@ namespace RealBookExtractor {
                         }
                     } catch (Exception ex) {
                         string msg = string.Format("Couldn't extract page {0}\r\n{1}", count++, ex.Message);
-                        MessageBox.Show(this, msg, "Extraction error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (MessageBox.Show(this, msg, "Extraction error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1) == DialogResult.Cancel) {
+                            return false;
+                        }
                     }
                 }
             }
