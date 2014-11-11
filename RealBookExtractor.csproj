@@ -37,6 +37,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\BitMiracle.LibTiff.NET.2.4.500.0\lib\net20\BitMiracle.LibTiff.NET.dll</HintPath>
     </Reference>
+    <Reference Include="iTextSharp">
+      <HintPath>packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
     <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
@@ -61,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompatiblePdfReader.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -20,7 +20,8 @@ namespace RealBookExtractor {
 
             labelLicence.Text = "This program is licenced under the MIT licence. Source code and licence information are available from https://github.com/trevorprinn/RealBookExtractor\r\n\r\n"
                 + "It uses PdfSharp components licenced under the MIT licence.\r\nhttp://www.pdfsharp.net\r\nCopyright © 2005-2012 empira Software GmbH, Troisdorf (Germany)"
-                + "https://github.com/gheeres/PDFSharp.Extensions\r\nCopyright © 2014 George Heeres, All rights reserved.";
+                + "https://github.com/gheeres/PDFSharp.Extensions\r\nCopyright © 2014 George Heeres, All rights reserved.\r\n"
+                + "and a version of iTextSharp licenced under the LGPL\r\nhttps://www.nuget.org/packages/iTextSharp-LGPL\r\nCopyright © 1999-2009 Bruno Lowagie and Paulo Soares";
             var links = Regex.Matches(labelLicence.Text, @"https?://[^\s]*");
             foreach (Match l in links) labelLicence.Links.Add(l.Index, l.Length, l.Value);
         }

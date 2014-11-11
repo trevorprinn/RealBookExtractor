@@ -49,7 +49,7 @@ namespace RealBookExtractor {
             Directory.CreateDirectory(OutFolder);
             System.Diagnostics.Process.Start(OutFolder);
             int count = 1;
-            using (var pdf = PdfReader.Open(pdfName, PdfDocumentOpenMode.Import)) {
+            using (var pdf = CompatiblePdfReader.Open(pdfName, PdfDocumentOpenMode.Import)) {
                 foreach (PdfPage page in pdf.Pages) {
                     try {
                         foreach (var img in page.GetImages()) {
