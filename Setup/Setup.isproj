@@ -29,10 +29,6 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup>
-		<ProjectReference Include="..\..\PDFSharp.Extensions\PDFSharp.Extensions.csproj">
-			<Name>PDFSharp.Extensions</Name>
-			<Project>{35910C2C-3D6D-4912-9584-4DE66C294729}</Project>
-		</ProjectReference>
 		<ProjectReference Include="..\RealBookExtractor.csproj">
 			<Name>RealBookExtractor</Name>
 			<Project>{3DFD15AF-ED26-4F14-94DD-760139E6D449}</Project>

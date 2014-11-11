@@ -341,7 +341,6 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>PDFSharp.Extensions.Primary_output</td><td>{FA20AC11-2A31-48B6-9947-B7591BDFBFC8}</td><td>INSTALLDIR</td><td>2</td><td/><td>pdfsharp.extensions.primary_</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>RealBookExtractor.Primary_output</td><td>{DCB99109-7941-4F37-862D-A3F4D29255F4}</td><td>INSTALLDIR</td><td>2</td><td/><td>realbookextractor.primary_ou</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1863,7 +1862,6 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>PDFSharp.Extensions.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>RealBookExtractor.Primary_output</td></row>
 	</table>
 
@@ -1879,7 +1877,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>pdfsharp.extensions.primary_</td><td>PDFSharp.Extensions.Primary_output</td><td>PDFSharp.Extensions.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;PDFSharp.Extensions&gt;|Built</td><td>3</td><td/></row>
 		<row><td>realbookextractor.primary_ou</td><td>RealBookExtractor.Primary_output</td><td>RealBookExtractor.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;RealBookExtractor&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
@@ -2024,7 +2021,6 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>PDFSharp.Extensions.Primary_output</td><td/><td/><td>_7BD6CAC5_8EA1_491E_9465_A7B7A966BCC7_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>RealBookExtractor.Primary_output</td><td/><td/><td>_8E4EBB29_EFDC_4BAF_9D40_D85B2E825A88_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2331,7 +2327,6 @@
 		<row><td>ISProductFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectDataFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectFolder</td><td/><td/><td>1</td></row>
-		<row><td>PDFSharp.Extensions</td><td>..\PDFSharp.Extensions\PDFSharp.Extensions.csproj</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>RealBookExtractor</td><td>RealBookExtractor.csproj</td><td/><td>2</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
@@ -2644,7 +2639,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Babbacombe Computers Ltd</td><td>0</td><td/><td>1302465679</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Babbacombe Computers Ltd</td><td>0</td><td/><td>1570907403</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>1302478638</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>1302478638</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1302495279</td></row>
@@ -3747,8 +3742,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1302478638</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1302478638</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>1302480686</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>https://github.com/trevorprinn/RealBookExtractor</td><td>0</td><td/><td>1302496495</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>Babbacombe Computers Ltd</td><td>0</td><td/><td>1302465679</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.BabbacombeComputersLtd.com</td><td>0</td><td/><td>1570907403</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Babbacombe Computers Ltd</td><td>0</td><td/><td>1570907403</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1302478638</td></row>
 	</table>
 
@@ -3991,7 +3986,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{27D0DC90-F308-4416-8CE9-173CFD1F382C}</td></row>
 		<row><td>ISUSSignature</td><td>{79DC7899-3A23-42F3-90D2-D27513F4A5D8}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewObjects,viewDependencies,viewISToday,viewRealSetupDesign,viewSetupDesign,viewCustomActions,viewRelease,viewAppV,viewInstallScriptStd,viewSystemSearch,viewTextMessages,viewDesignPatches,viewProject,viewShortcuts,viewSupportFiles,viewBillboards,viewUI</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewObjects,viewDependencies,viewISToday,viewRealSetupDesign,viewSetupDesign,viewCustomActions,viewRelease,viewAppV,viewInstallScriptStd,viewSystemSearch,viewTextMessages,viewDesignPatches,viewProject,viewShortcuts,viewSupportFiles,viewBillboards,viewUI,viewUpgradePaths,viewFeatureFiles,viewServices</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4369,9 +4364,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]RealBookExtractor.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{D96969AF-6D20-4CA3-89C1-17828F6FEA3E}</td><td/></row>
+		<row><td>ProductCode</td><td>{0663D12F-9E01-46C0-A746-759D5836FEBA}</td><td/></row>
 		<row><td>ProductName</td><td>Real Book Extractor</td><td/></row>
-		<row><td>ProductVersion</td><td>1.0.0.0</td><td/></row>
+		<row><td>ProductVersion</td><td>1.1.0.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4387,7 +4382,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
-		<row><td>UpgradeCode</td><td>{E00B2535-BDB6-4436-B5CB-A48203B3756C}</td><td/></row>
+		<row><td>UpgradeCode</td><td>{3F561278-7D21-463C-8E61-A8FE876F8F60}</td><td/></row>
 		<row><td>_IsMaintenance</td><td>Change</td><td/></row>
 		<row><td>_IsSetupTypeMin</td><td>Typical</td><td/></row>
 	</table>
