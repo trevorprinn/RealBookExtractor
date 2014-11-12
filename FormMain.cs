@@ -191,6 +191,13 @@ namespace RealBookExtractor {
         private void menuOnlineWiki_Click(object sender, EventArgs e) {
             System.Diagnostics.Process.Start("https://github.com/trevorprinn/RealBookExtractor/wiki");
         }
+
+        private void btnBrowse_Click(object sender, EventArgs e) {
+            if (dlgFolder.ShowDialog(this) == DialogResult.OK) {
+                textFolder.Text = dlgFolder.SelectedPath;
+                btnLoad.PerformClick();
+            }
+        }
     }
 
     public class UndoInfo {

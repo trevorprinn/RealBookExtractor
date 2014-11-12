@@ -23,12 +23,13 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuMain = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExtract = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOnlineWiki = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textFolder = new System.Windows.Forms.TextBox();
@@ -45,8 +46,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.cboArtist = new RealBookExtractor.SearchingComboBox();
             this.btnDuplicate = new System.Windows.Forms.Button();
-            this.menuOnlineWiki = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.dlgFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
             this.splitPages.Panel2.SuspendLayout();
@@ -55,17 +57,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnd)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
             this.menuEdit,
             this.menuHelp});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(599, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.Name = "menuMain";
+            this.menuMain.Size = new System.Drawing.Size(599, 24);
+            this.menuMain.TabIndex = 0;
             // 
             // menuFile
             // 
@@ -107,10 +108,17 @@
             this.menuHelp.Size = new System.Drawing.Size(44, 20);
             this.menuHelp.Text = "Help";
             // 
+            // menuOnlineWiki
+            // 
+            this.menuOnlineWiki.Name = "menuOnlineWiki";
+            this.menuOnlineWiki.Size = new System.Drawing.Size(135, 22);
+            this.menuOnlineWiki.Text = "Online Wiki";
+            this.menuOnlineWiki.Click += new System.EventHandler(this.menuOnlineWiki_Click);
+            // 
             // menuAbout
             // 
             this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(152, 22);
+            this.menuAbout.Size = new System.Drawing.Size(135, 22);
             this.menuAbout.Text = "About";
             this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
@@ -129,7 +137,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textFolder.Location = new System.Drawing.Point(57, 25);
             this.textFolder.Name = "textFolder";
-            this.textFolder.Size = new System.Drawing.Size(465, 20);
+            this.textFolder.Size = new System.Drawing.Size(434, 20);
             this.textFolder.TabIndex = 2;
             this.textFolder.TextChanged += new System.EventHandler(this.textFolder_TextChanged);
             // 
@@ -139,7 +147,7 @@
             this.btnLoad.Location = new System.Drawing.Point(531, 23);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(56, 23);
-            this.btnLoad.TabIndex = 3;
+            this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -162,7 +170,7 @@
             this.splitPages.Panel2.Controls.Add(this.picEnd);
             this.splitPages.Size = new System.Drawing.Size(574, 314);
             this.splitPages.SplitterDistance = 286;
-            this.splitPages.TabIndex = 13;
+            this.splitPages.TabIndex = 14;
             // 
             // picStart
             // 
@@ -190,7 +198,7 @@
             this.btnBack.Location = new System.Drawing.Point(433, 51);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 8;
+            this.btnBack.TabIndex = 7;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -201,7 +209,7 @@
             this.btnNext.Location = new System.Drawing.Point(514, 51);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 9;
+            this.btnNext.TabIndex = 8;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -212,7 +220,7 @@
             this.label2.Location = new System.Drawing.Point(18, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 5;
             this.label2.Text = "Artist:";
             // 
             // label3
@@ -221,7 +229,7 @@
             this.label3.Location = new System.Drawing.Point(18, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 9;
             this.label3.Text = "Title:";
             // 
             // textTitle
@@ -232,7 +240,7 @@
             this.textTitle.Location = new System.Drawing.Point(57, 85);
             this.textTitle.Name = "textTitle";
             this.textTitle.Size = new System.Drawing.Size(344, 22);
-            this.textTitle.TabIndex = 7;
+            this.textTitle.TabIndex = 10;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
             this.textTitle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTitle_KeyPress);
             // 
@@ -242,7 +250,7 @@
             this.btnSave.Location = new System.Drawing.Point(407, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 23);
-            this.btnSave.TabIndex = 10;
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -253,7 +261,7 @@
             this.btnDelete.Location = new System.Drawing.Point(464, 88);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 23);
-            this.btnDelete.TabIndex = 11;
+            this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -268,7 +276,7 @@
             this.cboArtist.Location = new System.Drawing.Point(57, 58);
             this.cboArtist.Name = "cboArtist";
             this.cboArtist.Size = new System.Drawing.Size(344, 24);
-            this.cboArtist.TabIndex = 5;
+            this.cboArtist.TabIndex = 6;
             this.cboArtist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboArtist_KeyPress);
             // 
             // btnDuplicate
@@ -277,17 +285,26 @@
             this.btnDuplicate.Location = new System.Drawing.Point(520, 88);
             this.btnDuplicate.Name = "btnDuplicate";
             this.btnDuplicate.Size = new System.Drawing.Size(67, 23);
-            this.btnDuplicate.TabIndex = 12;
+            this.btnDuplicate.TabIndex = 13;
             this.btnDuplicate.Text = "Duplicate";
             this.btnDuplicate.UseVisualStyleBackColor = true;
             this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
-            // menuOnlineWiki
+            // dlgFolder
             // 
-            this.menuOnlineWiki.Name = "menuOnlineWiki";
-            this.menuOnlineWiki.Size = new System.Drawing.Size(152, 22);
-            this.menuOnlineWiki.Text = "Online Wiki";
-            this.menuOnlineWiki.Click += new System.EventHandler(this.menuOnlineWiki_Click);
+            this.dlgFolder.Description = "Select a folder of page images";
+            this.dlgFolder.ShowNewFolderButton = false;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowse.Location = new System.Drawing.Point(490, 23);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(35, 23);
+            this.btnBrowse.TabIndex = 3;
+            this.btnBrowse.Text = "...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // FormMain
             // 
@@ -295,6 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 431);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.cboArtist);
             this.Controls.Add(this.btnDelete);
@@ -308,13 +326,13 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.textFolder);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuMain);
             this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuMain;
             this.Name = "FormMain";
             this.Text = "Real Book Extractor";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuMain.ResumeLayout(false);
+            this.menuMain.PerformLayout();
             this.splitPages.Panel1.ResumeLayout(false);
             this.splitPages.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).EndInit();
@@ -328,7 +346,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem menuExtract;
         private System.Windows.Forms.Label label1;
@@ -351,6 +369,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuAbout;
         private System.Windows.Forms.Button btnDuplicate;
         private System.Windows.Forms.ToolStripMenuItem menuOnlineWiki;
+        private System.Windows.Forms.FolderBrowserDialog dlgFolder;
+        private System.Windows.Forms.Button btnBrowse;
     }
 }
 
