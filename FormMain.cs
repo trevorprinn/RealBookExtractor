@@ -67,7 +67,8 @@ namespace RealBookExtractor {
         }
 
         private IEnumerable<string> getPages() {
-            return Directory.GetFiles(_pngFolder).Select(f => Path.GetFileName(f)).OrderBy(f => f);
+            return Directory.GetFiles(_pngFolder).Select(f => Path.GetFileName(f))
+                .Where(f => Path.GetExtension(f).ToLower() != ".pdf").OrderBy(f => f);
         }
 
         private void displayPage() {
