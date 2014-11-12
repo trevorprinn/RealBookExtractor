@@ -198,7 +198,7 @@
             this.btnBack.Location = new System.Drawing.Point(433, 51);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 7;
+            this.btnBack.TabIndex = 9;
             this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -209,7 +209,7 @@
             this.btnNext.Location = new System.Drawing.Point(514, 51);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 8;
+            this.btnNext.TabIndex = 10;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -229,7 +229,7 @@
             this.label3.Location = new System.Drawing.Point(18, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 7;
             this.label3.Text = "Title:";
             // 
             // textTitle
@@ -240,7 +240,7 @@
             this.textTitle.Location = new System.Drawing.Point(57, 85);
             this.textTitle.Name = "textTitle";
             this.textTitle.Size = new System.Drawing.Size(344, 22);
-            this.textTitle.TabIndex = 10;
+            this.textTitle.TabIndex = 8;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
             this.textTitle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTitle_KeyPress);
             // 
