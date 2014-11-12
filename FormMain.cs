@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace RealBookExtractor {
     public partial class FormMain : Form {
 
-        private string _jpgFolder;
+        private string _pngFolder;
         private string _firstPage;
         private string _lastPage;
         private UndoInfo[] _undoInfo;
@@ -60,14 +60,14 @@ namespace RealBookExtractor {
         }
 
         private void btnLoad_Click(object sender, EventArgs e) {
-            _jpgFolder = textFolder.Text;
-            Settings.FolderPath = _jpgFolder;
+            _pngFolder = textFolder.Text;
+            Settings.FolderPath = _pngFolder;
             _undoInfo = null;
             displayPage();
         }
 
         private IEnumerable<string> getPages() {
-            return Directory.GetFiles(_jpgFolder).Select(f => Path.GetFileName(f)).OrderBy(f => f);
+            return Directory.GetFiles(_pngFolder).Select(f => Path.GetFileName(f)).OrderBy(f => f);
         }
 
         private void displayPage() {
@@ -85,7 +85,7 @@ namespace RealBookExtractor {
 
         private void loadArtists() {
             cboArtist.Items.Clear();
-            cboArtist.Items.AddRange(Directory.GetDirectories(_jpgFolder).Select(a => Path.GetFileName(a)).ToArray());
+            cboArtist.Items.AddRange(Directory.GetDirectories(_pngFolder).Select(a => Path.GetFileName(a)).ToArray());
         }
 
         private void loadEndPage() {
@@ -111,12 +111,12 @@ namespace RealBookExtractor {
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
-            File.Delete(Path.Combine(_jpgFolder, _firstPage));
+            File.Delete(Path.Combine(_pngFolder, _firstPage));
             displayPage();
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            var folder = Path.Combine(_jpgFolder, cboArtist.Text);
+            var folder = Path.Combine(_pngFolder, cboArtist.Text);
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
             var pages = getPages().TakeWhile(f => f != _lastPage).ToList();
             pages.Add(_lastPage);
@@ -124,7 +124,7 @@ namespace RealBookExtractor {
             bool counter = pages.Count > 1;
             _undoInfo = pages.Select(p => new {OrigName = p, 
                 NewName = (counter ? string.Format("{0} {1}", textTitle.Text, ++count) : textTitle.Text) + Path.GetExtension(p)
-            }).Select(p => new UndoInfo(_jpgFolder, p.OrigName, folder, p.NewName)).ToArray();
+            }).Select(p => new UndoInfo(_pngFolder, p.OrigName, folder, p.NewName)).ToArray();
             foreach (var p in _undoInfo) p.Move();
             textTitle.Text = cboArtist.Text = "";
             displayPage();
@@ -140,7 +140,7 @@ namespace RealBookExtractor {
         
         private Image loadImage(string file) {
             if (file == null) return null;
-            string path = Path.Combine(_jpgFolder, file);
+            string path = Path.Combine(_pngFolder, file);
             if (!File.Exists(path)) return null;
             // Image.FromFile seems to lock the file until the image is disposed.
             using (var memStream = new MemoryStream()) {
@@ -174,9 +174,9 @@ namespace RealBookExtractor {
             var ext = Path.GetExtension(_firstPage);
             string newName;
             do {
-                newName = Path.Combine(_jpgFolder, string.Format("{0} ({1}){2}", fname, dupeNum++, ext));
+                newName = Path.Combine(_pngFolder, string.Format("{0} ({1}){2}", fname, dupeNum++, ext));
             } while (File.Exists(newName));
-            File.Copy(Path.Combine(_jpgFolder, _firstPage), newName);
+            File.Copy(Path.Combine(_pngFolder, _firstPage), newName);
             displayPage();
         }
 

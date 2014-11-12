@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -53,10 +54,18 @@ namespace RealBookExtractor {
                 foreach (PdfPage page in pdf.Pages) {
                     try {
                         foreach (var img in page.GetImages()) {
+                            if (img == null) {
+                                string msg = string.Format("Cannot decode image on page {0}", count++);
+                                if (MessageBox.Show(this, msg, "Extraction Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1) == DialogResult.OK) {
+                                    continue;
+                                } else {
+                                    return false;
+                                }
+                            }
                             if (img.PixelFormat == System.Drawing.Imaging.PixelFormat.Format1bppIndexed) {
                                 checkNegative(img);
                             }
-                            img.Save(Path.Combine(OutFolder, string.Format("{0:000}.jpg", count++)));
+                            img.Save(Path.Combine(OutFolder, string.Format("{0:000}.png", count++)), ImageFormat.Png);
                         }
                     } catch (Exception ex) {
                         string msg = string.Format("Couldn't extract page {0}\r\n{1}", count++, ex.Message);
