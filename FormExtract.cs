@@ -80,7 +80,7 @@ namespace RealBookExtractor {
 
         private void checkNegative(Image img) {
             // 1bbp images are sometimes coming out -ve.
-            // I'm assuming that the images are black and white and just checking the top LH corner.
+            // I'm assuming that the images are black and white and just checking the top corners.
             var whiteCount = 0;
             using (var bmp = new Bitmap(img)) {
                 for (var x = 0; x < Math.Min(bmp.Width, 50); x++) {
@@ -88,8 +88,18 @@ namespace RealBookExtractor {
                         if (bmp.GetPixel(x, y).ToArgb() == Color.White.ToArgb()) whiteCount++;
                     }
                 }
-                // There's more white than black;
+                // There's more white than black
                 if (whiteCount > Math.Min(bmp.Width, 50) * Math.Min(bmp.Height, 50) / 2) return;
+                // Check the top right hand corner as well in case the page is a scan of a torn page.
+                whiteCount = 0;
+                if (bmp.Width > 50) {
+                    for (var x = bmp.Width - 51; x < bmp.Width; x++) {
+                        for (var y = 0; y < Math.Min(bmp.Height, 50); y++) {
+                            if (bmp.GetPixel(x, y).ToArgb() == Color.White.ToArgb()) whiteCount++;
+                        }
+                    }
+                    if (whiteCount > 50 * Math.Min(bmp.Height, 50) / 2) return;
+                }
             }
 
             // Reverse the entries in the palette
