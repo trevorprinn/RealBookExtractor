@@ -85,11 +85,11 @@ namespace RealBookExtractor {
             using (var bmp = new Bitmap(img)) {
                 for (var x = 0; x < Math.Min(bmp.Width, 50); x++) {
                     for (var y = 0; y < Math.Min(bmp.Height, 50); y++) {
-                        if (bmp.GetPixel(x, y) == Color.White) whiteCount++;
+                        if (bmp.GetPixel(x, y).ToArgb() == Color.White.ToArgb()) whiteCount++;
                     }
                 }
                 // There's more white than black;
-                if (whiteCount > bmp.Width * bmp.Height / 2) return;
+                if (whiteCount > Math.Min(bmp.Width, 50) * Math.Min(bmp.Height, 50) / 2) return;
             }
 
             // Reverse the entries in the palette
