@@ -48,6 +48,7 @@
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.dlgFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnNegative = new System.Windows.Forms.Button();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
@@ -170,7 +171,7 @@
             this.splitPages.Panel2.Controls.Add(this.picEnd);
             this.splitPages.Size = new System.Drawing.Size(574, 314);
             this.splitPages.SplitterDistance = 286;
-            this.splitPages.TabIndex = 14;
+            this.splitPages.TabIndex = 15;
             // 
             // picStart
             // 
@@ -239,7 +240,7 @@
             this.textTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTitle.Location = new System.Drawing.Point(57, 85);
             this.textTitle.Name = "textTitle";
-            this.textTitle.Size = new System.Drawing.Size(344, 22);
+            this.textTitle.Size = new System.Drawing.Size(282, 22);
             this.textTitle.TabIndex = 8;
             this.textTitle.TextChanged += new System.EventHandler(this.text_Changed);
             this.textTitle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textTitle_KeyPress);
@@ -247,7 +248,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(407, 88);
+            this.btnSave.Location = new System.Drawing.Point(345, 85);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 23);
             this.btnSave.TabIndex = 11;
@@ -258,7 +259,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(464, 88);
+            this.btnDelete.Location = new System.Drawing.Point(402, 85);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 23);
             this.btnDelete.TabIndex = 12;
@@ -275,14 +276,14 @@
             this.cboArtist.InputMustMatch = false;
             this.cboArtist.Location = new System.Drawing.Point(57, 58);
             this.cboArtist.Name = "cboArtist";
-            this.cboArtist.Size = new System.Drawing.Size(344, 24);
+            this.cboArtist.Size = new System.Drawing.Size(282, 24);
             this.cboArtist.TabIndex = 6;
             this.cboArtist.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboArtist_KeyPress);
             // 
             // btnDuplicate
             // 
             this.btnDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDuplicate.Location = new System.Drawing.Point(520, 88);
+            this.btnDuplicate.Location = new System.Drawing.Point(458, 85);
             this.btnDuplicate.Name = "btnDuplicate";
             this.btnDuplicate.Size = new System.Drawing.Size(67, 23);
             this.btnDuplicate.TabIndex = 13;
@@ -306,12 +307,23 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // btnNegative
+            // 
+            this.btnNegative.Location = new System.Drawing.Point(531, 85);
+            this.btnNegative.Name = "btnNegative";
+            this.btnNegative.Size = new System.Drawing.Size(58, 23);
+            this.btnNegative.TabIndex = 14;
+            this.btnNegative.Text = "Negative";
+            this.btnNegative.UseVisualStyleBackColor = true;
+            this.btnNegative.Click += new System.EventHandler(this.btnNegative_Click);
+            // 
             // FormMain
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 431);
+            this.Controls.Add(this.btnNegative);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.cboArtist);
@@ -371,6 +383,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuOnlineWiki;
         private System.Windows.Forms.FolderBrowserDialog dlgFolder;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Button btnNegative;
     }
 }
 

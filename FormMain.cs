@@ -33,6 +33,7 @@ namespace RealBookExtractor {
 
         private void setButtonStates() {
             btnLoad.Enabled = Directory.Exists(textFolder.Text);
+            btnNegative.Enabled = picStart.Image != null && picStart.Image.PixelFormat == System.Drawing.Imaging.PixelFormat.Format1bppIndexed;
             if (_firstPage == null || !getPages().Any()) {
                 cboArtist.Enabled = textTitle.Enabled = btnBack.Enabled
                     = btnNext.Enabled = btnSave.Enabled = btnDelete.Enabled = btnDuplicate.Enabled = false;
@@ -145,7 +146,7 @@ namespace RealBookExtractor {
             if (!File.Exists(path)) return null;
             // Image.FromFile seems to lock the file until the image is disposed.
             using (var memStream = new MemoryStream()) {
-                using (FileStream s = new FileStream(path, FileMode.Open)) {
+                using (FileStream s = new FileStream(path, FileMode.Open, FileAccess.Read)) {
                     s.CopyTo(memStream, 10240);
                 }
                 memStream.Seek(0, SeekOrigin.Begin);
@@ -198,6 +199,19 @@ namespace RealBookExtractor {
                 textFolder.Text = dlgFolder.SelectedPath;
                 btnLoad.PerformClick();
             }
+        }
+
+        private void btnNegative_Click(object sender, EventArgs e) {
+            var img = picStart.Image;
+            // Reverse the entries in the palette
+            var pal = img.Palette;
+            var entries = pal.Entries.ToArray();
+            pal.Entries.SetValue(entries[1], 0);
+            pal.Entries.SetValue(entries[0], 1);
+            img.Palette = pal;
+
+            img.Save(Path.Combine(_pngFolder, _firstPage));
+            displayPage();
         }
     }
 
