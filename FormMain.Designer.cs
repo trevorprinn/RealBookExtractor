@@ -49,6 +49,7 @@
             this.dlgFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnNegative = new System.Windows.Forms.Button();
+            this.dlgPdf = new System.Windows.Forms.OpenFileDialog();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPages)).BeginInit();
             this.splitPages.Panel1.SuspendLayout();
@@ -309,6 +310,7 @@
             // 
             // btnNegative
             // 
+            this.btnNegative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNegative.Location = new System.Drawing.Point(531, 85);
             this.btnNegative.Name = "btnNegative";
             this.btnNegative.Size = new System.Drawing.Size(58, 23);
@@ -316,6 +318,12 @@
             this.btnNegative.Text = "Negative";
             this.btnNegative.UseVisualStyleBackColor = true;
             this.btnNegative.Click += new System.EventHandler(this.btnNegative_Click);
+            // 
+            // dlgPdf
+            // 
+            this.dlgPdf.DefaultExt = "pdf";
+            this.dlgPdf.Filter = "Pdf Files|*.pdf|All Files|*.*";
+            this.dlgPdf.Title = "Select the PDF to extract from";
             // 
             // FormMain
             // 
@@ -384,6 +392,7 @@
         private System.Windows.Forms.FolderBrowserDialog dlgFolder;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnNegative;
+        private System.Windows.Forms.OpenFileDialog dlgPdf;
     }
 }
 

@@ -65,17 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompatiblePdfReader.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormExtract.cs">
+    <Compile Include="FormExtractProgress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormExtract.Designer.cs">
-      <DependentUpon>FormExtract.cs</DependentUpon>
+    <Compile Include="FormExtractProgress.Designer.cs">
+      <DependentUpon>FormExtractProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -83,6 +84,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="PdfExtractor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchingComboBox.cs">
@@ -91,8 +93,8 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormExtract.resx">
-      <DependentUpon>FormExtract.cs</DependentUpon>
+    <EmbeddedResource Include="FormExtractProgress.resx">
+      <DependentUpon>FormExtractProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

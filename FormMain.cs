@@ -48,9 +48,16 @@ namespace RealBookExtractor {
         }
 
         private void menuExtract_Click(object sender, EventArgs e) {
-            using (var f = new FormExtract()) {
+            if (dlgPdf.ShowDialog(this) != DialogResult.OK) return;
+            string pdfName = dlgPdf.FileName;
+            string outFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Path.GetFileNameWithoutExtension(pdfName));
+            if (Directory.Exists(outFolder)) {
+                MessageBox.Show(this, outFolder + "\r\nalready exists.");
+                return;
+            }
+            using (var f = new FormExtractProgress(outFolder, pdfName)) {
                 if (f.ShowDialog(this) == DialogResult.OK) {
-                    textFolder.Text = f.OutFolder;
+                    textFolder.Text = outFolder;
                     btnLoad.PerformClick();
                 }
             }
